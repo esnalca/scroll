@@ -10,6 +10,11 @@ $opciones = [
 ];
 $hash = password_hash($pswd, PASSWORD_DEFAULT)."<br>";
 
-echo $hash;
+if (password_verify($psw, $hash)) {
+    echo '¡La contraseña es válida!';
+} else {
+    echo 'La contraseña no es válida.';
+}
+
 ?>
 
