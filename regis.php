@@ -6,6 +6,7 @@ $cod= $_POST["cod"];
 include("includes/conexion.php");
 
 /*Funcion para encriptar contarseña*/
+
 function better_crypt($input, $rounds = 10)
   {
     $crypt_options = array(
@@ -13,23 +14,48 @@ function better_crypt($input, $rounds = 10)
     );
     return password_hash($input, PASSWORD_BCRYPT, $crypt_options);
   }
+  
   $new_password = $pswd;
   $password_bd = better_crypt($new_password);
   
-  /* Comprobar email duplicado */
+  /* Comprobar codigo */
   
-  $sqldupli="SELECT * FROM reg WHERE '$email'=email ";
-  $resdupli=mysqli_query($link,$sqldupli);	
-  $numdupli= mysqli_num_rows($resdupli);
+  $sqlcod = "SELECT * FROM cod WHERE '$cod' = cod";
+  $rescod = mysqli_query($link,$sqlcod);
+  $numcod = mysqli_num_rows($rescod);
+  $cod = mysqli_fetch_array($rescod);
+  $idus= $cod['idus'];
   
- if($numdupli>0){
- 	echo "email duplicado";
+  echo $numcod. "<br>";
+  
+  if( $numcod == 1){
+
+	/* Comprobar si codigo utilizado */
+  	
+	echo "El código existe". "<br>";
+	if ($idus == 0){
+	  	echo "Esta libre". "<br>";
+
+		/* Comprobar email duplicado */
+
+  		$sqldupli = "SELECT * FROM reg WHERE '$email' = email";
+  		$resdupli = mysqli_query($link,$sqldupli);	
+  		$numdupli = mysqli_num_rows($resdupli);
+	}
 	}else{
+		echo "codigo invalido";
+		}
+	/*
+  if($numdupli > 0){
+ 	echo "email duplicado". "<br>";
+	}
+		
  		/* Insertar email y contraseña */
-  		$sqlinsert="INSERT INTO  `yovi`.`reg` (`email` ,`pass`)
+		/*
+  		$sqlinsert = "INSERT INTO  `yovi`.`reg` (`email` ,`pass`)
 					  VALUES ('$email',  '$password_bd')";
-		$resinsert=mysqli_query($link,$sqlinsert);	
-				
+		$resinsert = mysqli_query($link,$sqlinsert);	
+		echo "bien";		
  		}
 		
 		
