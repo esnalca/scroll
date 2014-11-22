@@ -31,12 +31,8 @@ function better_crypt($input, $rounds = 10)
 	/* Comprobar si codigo utilizado */
   	
 	echo "El código existe". "<br>";
-	$cod = mysqli_fetch_array($rescod);
-  	$idus= $cod['idus'];
-	
-	/*AQUI NOS HEMOS QUEDADO*/
-	
-	$idcod = $cod['idcod'];
+	$codi = mysqli_fetch_array($rescod);
+  	$idus= $codi['idus'];
 	
 	if($idus == 0){
 		
@@ -57,16 +53,24 @@ function better_crypt($input, $rounds = 10)
 		
   		$sqlinsert = "INSERT INTO  `yovi`.`reg` (`email` ,`pass`)
 					  VALUES ('$email',  '$password_bd')";
-		$resinsert = mysqli_query($link,$sqlinsert);	
+		$resinsert = mysqli_query($link,$sqlinsert);
 		
-		echo "Id codigo " . $idcod . "<br>";
-		echo "Id usuario	" . $idus . "<br>";
 		/* Guardar idus en codigo de collar*/
 		
+		/*Recoge el idusuario para guardarlo ligado al codigo */
 		
- 		
-			
-			echo "email y contraseña guardada en user y guardar idus en cod";
+		$sql = "SELECT idus FROM reg WHERE '$email' = email";
+		$res = mysqli_query($link,$sql);
+		$num = mysqli_num_rows($res);
+		$fila = mysqli_fetch_array($res);
+		$idusgu = $fila["idus"];
+		
+		/* Modifica la tabla codigo de collar para guardar el idusuario */
+		
+		$sqlcodi = "UPDATE `yovi`.`cod` SET `idus` = '$idusgu' WHERE `cod`.`cod` = '$cod'";
+		$rescodi = mysqli_query($link,$sqlcodi);
+		
+		echo "Guarda email y contraseña, guarda el id de usuario en la tabla codigo collar para ligar collar y usuario";
 			
 			}else{
 				echo "email duplicado";
