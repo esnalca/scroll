@@ -18,5 +18,5 @@ function conexion($server,$usuario,$pass,$bbdd){
 $link=conexion("127.0.0.1","esnalca","221088","yovi");
 
 //si la conexion se ha producido de forma correcta
-//en la variable $link se dispone del recurso que identifica la conexiÛn con la bbdd.
-//este recurso ser· el que utilicemos para cuestionar 'query' a la bbdd
+//en la variable $link se dispone del recurso que identifica la conexi√≥n con la bbdd.
+//este recurso ser√° el que utilicemos para cuestionar 'query' a la bbdd

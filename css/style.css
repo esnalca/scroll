@@ -27,6 +27,7 @@ ul, li {
 	box-shadow:0 1px 1px #ccc;
 	border-radius:5px;
 	position:relative;
+	margin-top: 8px; 
 }
 	 
 .titreg {
@@ -142,7 +143,7 @@ button:active {
 .valid {
 	background:url(accept.png) no-repeat 0 50%;
 	padding-left:22px;
-	line-height:24px;
+	line-:24px;
 	color:#3a7d34;
 }	
 #pswd_info {
@@ -288,5 +289,20 @@ html,body{
   animation-name: fadeInUp;
 }
 
+.menreg{
+	width:400px;
+	padding:0px;
+	background:#fefefe;
+	margin:0 auto;
+	border:1px solid #c4cddb;
+	border-top-color:#d3dbde;
+	border-bottom-color:#bfc9dc;
+	box-shadow:0 1px 1px #ccc;
+	border-radius:5px;
+	position:relative;
+	margin-top: 150px;
+    color:#3a7d34;
+}
+	
 
 

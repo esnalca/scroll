@@ -1,0 +1,5 @@
+<?
+
+echo "Panel de admin";
+
+?>
