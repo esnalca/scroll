@@ -1,7 +1,7 @@
 <?php
 require_once('phpmailer/class.phpmailer.php'); //Incluimos la clase phpmailer
 
-$mensaje="<a href='localhost/scroll/includes/func/reg/verif.php?i=$idusgu'>LINK PARA VERIFICAR EMAIL</a>";
+$mensaje="<a href='localhost/scroll/includes/func/reg/verif.php?c=$clave'>LINK PARA VERIFICAR EMAIL</a>";
 
 
 

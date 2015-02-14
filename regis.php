@@ -35,6 +35,7 @@ include("includes/func/pass/cryppass.php");
 		/* Guardar idus en codigo de collar */
 		
 		include("includes/bbdd/reg/codus.php");	
+        include("includes/comp/reg/clave.php");
 			
 		include("includes/phpmailer/phpmailer_prueba.php");
 		
