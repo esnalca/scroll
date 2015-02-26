@@ -36,13 +36,16 @@ include("includes/func/pass/cryppass.php");
 		
 		include("includes/bbdd/reg/codus.php");	
         include("includes/comp/reg/clave.php");
+
+        /* Crear directorio de usuario */
+
 			
 		include("includes/phpmailer/phpmailer_prueba.php");
 		
-		header ("Location: index.php?r=0");
+		header ("Location: index.php?r=0#services");
 	
 			}else{
-				header ("Location: index.php?r=1");
+				header ("Location: index.php?r=1#services");
 				}
 	
 	}else{

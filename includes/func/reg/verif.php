@@ -27,6 +27,11 @@
         $sqlin = "UPDATE `yovi`.`reg` SET `verif` = '1' WHERE `reg`.`idus` = '$idus'";
         $resin = mysqli_query($link,$sqlin);
         
+        $target = "../../../usu/$idus";  //$nombreUsuario viene del formulario cuando se registra. $_POST['username'];
+
+        mkdir($target, 0777);
+
+
         header("location: ../../../usu/admin.php?c=$codcollar");
         
     }
